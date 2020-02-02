@@ -59,6 +59,7 @@ describe('Food', () => {
         };
         const food = new Food('rice', 'g', baseValues);
         food.changeAmount(23);
+
         expect(food.getCurrentValues().amount).toEqual(23);
     });
 
@@ -71,6 +72,8 @@ describe('Food', () => {
             calories: 124
         };
         const food = new Food('rice', 'g', baseValues);
-        expect(() => food.changeAmount(-23)).toThrowError(InvalidFoodAmountError);
+
+        expect(() => food.changeAmount(-23))
+            .toThrowError(InvalidFoodAmountError);
     });
 });

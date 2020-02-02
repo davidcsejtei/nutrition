@@ -46,12 +46,15 @@ class Food {
     changeAmount(amount: number) {
         this.validateFoodAmount(amount);
         this.currentValues.amount = amount;
-        this.currentValues.calories = this.calculateCaloriesFromAmount();
+        this.currentValues.calories = this.calculateNutritionFromAmount('calories');
+        this.currentValues.fat = this.calculateNutritionFromAmount('fat');
+        this.currentValues.carbohydrate = this.calculateNutritionFromAmount('carbohydrate');
+        this.currentValues.protein = this.calculateNutritionFromAmount('protein');
     }
 
-    calculateCaloriesFromAmount() {
+    calculateNutritionFromAmount(nutrition: string) {
         return Math.ceil(
-            this.currentValues.amount * this.baseValues.calories
+            this.currentValues.amount * this.baseValues[nutrition]
             / this.baseValues.amount);
     }
 }

@@ -45,8 +45,8 @@ class Food {
     changeAmount(amount: number) {
         this.validateFoodAmount(amount);
         this.currentValues.amount = amount;
-        this.currentValues.calories
-            = Math.ceil(
+        this.currentValues.calories =
+            Math.ceil(
                 this.currentValues.amount * this.baseValues.calories
                 / this.baseValues.amount);
     }

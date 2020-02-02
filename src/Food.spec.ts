@@ -77,7 +77,7 @@ describe('Food', () => {
             .toThrowError(InvalidFoodAmountError);
     });
 
-    test('create food and change amount and calculate current calories', () => {
+    test('create food, change amount and calculate current calories', () => {
         const baseValues = {
             amount: 100,
             fat: 30,

@@ -76,4 +76,18 @@ describe('Food', () => {
         expect(() => food.changeAmount(-23))
             .toThrowError(InvalidFoodAmountError);
     });
+
+    test('create food and change amount and calculate current calories', () => {
+        const baseValues = {
+            amount: 100,
+            fat: 30,
+            carbohydrate: 40,
+            protein: 65,
+            calories: 124
+        };
+        const food = new Food('rice', 'g', baseValues);
+        food.changeAmount(87);
+
+        expect(food.getCurrentValues().calories).toEqual(108);
+    });
 });

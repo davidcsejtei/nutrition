@@ -10,13 +10,13 @@ class Food {
         private readonly unit: string,
         private readonly baseValues: Nutritions) {
         this.validateFoodName(name);
-        this.validateFoodAmount(baseValues);
+        this.validateFoodAmount(baseValues.amount);
         this.currentValues = { ...baseValues }
     }
 
-    private validateFoodAmount(baseValues: Nutritions) {
-        if (baseValues.amount <= 0) {
-            throw new InvalidFoodAmountError(baseValues.amount);
+    private validateFoodAmount(amount: number) {
+        if (amount <= 0) {
+            throw new InvalidFoodAmountError(amount);
         }
     }
 
@@ -40,6 +40,11 @@ class Food {
 
     getCurrentValues(): Nutritions {
         return this.currentValues;
+    }
+
+    changeAmount(amount: number) {
+        this.validateFoodAmount(amount);
+        this.currentValues.amount = amount;
     }
 }
 

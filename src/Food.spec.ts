@@ -48,4 +48,29 @@ describe('Food', () => {
         expect(() => new Food('rice', 'g', baseValues))
             .toThrowError(InvalidFoodAmountError);
     });
+
+    test('create food and change amount', () => {
+        const baseValues = {
+            amount: 100,
+            fat: 30,
+            carbohydrate: 40,
+            protein: 65,
+            calories: 124
+        };
+        const food = new Food('rice', 'g', baseValues);
+        food.changeAmount(23);
+        expect(food.getCurrentValues().amount).toEqual(23);
+    });
+
+    test('create food and change amount with negative number', () => {
+        const baseValues = {
+            amount: 100,
+            fat: 30,
+            carbohydrate: 40,
+            protein: 65,
+            calories: 124
+        };
+        const food = new Food('rice', 'g', baseValues);
+        expect(() => food.changeAmount(-23)).toThrowError(InvalidFoodAmountError);
+    });
 });

@@ -94,4 +94,22 @@ describe('Food', () => {
         expect(food.getCurrentValues().carbohydrate).toEqual(35);
         expect(food.getCurrentValues().protein).toEqual(57);
     });
+
+    test('create food, change calories and calculate current values', () => {
+        const baseValues = {
+            amount: 100,
+            fat: 30,
+            carbohydrate: 40,
+            protein: 65,
+            calories: 124
+        };
+        const food = new Food('rice', Units.GRAM, baseValues);
+        food.changeCalories(200);
+
+        expect(food.getCurrentValues().calories).toEqual(200);
+        expect(food.getCurrentValues().amount).toEqual(162);
+        expect(food.getCurrentValues().fat).toEqual(49);
+        expect(food.getCurrentValues().carbohydrate).toEqual(65);
+        expect(food.getCurrentValues().protein).toEqual(106);
+    });
 });

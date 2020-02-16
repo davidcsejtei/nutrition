@@ -98,18 +98,18 @@ describe('Food', () => {
     test('create food, change calories and calculate current values', () => {
         const baseValues = {
             amount: 100,
-            fat: 30,
-            carbohydrate: 40,
-            protein: 65,
-            calories: 124
+            fat: 4,
+            carbohydrate: 450,
+            protein: 1,
+            calories: 130
         };
         const food = new Food('rice', Units.GRAM, baseValues);
-        food.changeCalories(200);
+        food.changeCalories(211);
 
-        expect(food.getCurrentValues().calories).toEqual(200);
-        expect(food.getCurrentValues().amount).toEqual(162);
-        expect(food.getCurrentValues().fat).toEqual(49);
-        expect(food.getCurrentValues().carbohydrate).toEqual(65);
-        expect(food.getCurrentValues().protein).toEqual(106);
+        expect(food.getCurrentValues().calories).toEqual(211);
+        expect(food.getCurrentValues().amount).toEqual(163);
+        expect(food.getCurrentValues().fat).toEqual(7);
+        expect(food.getCurrentValues().carbohydrate).toEqual(734);
+        expect(food.getCurrentValues().protein).toEqual(2);
     });
 });

@@ -1,5 +1,6 @@
-export * from './Food';
-export * from './Nutritions';
-export * from './Units';
-export * from './errors/EmptyFoodNameError';
-export * from './errors/InvalidFoodAmountError';
+import Food from './Food';
+import Nutritions from './Nutritions';
+import Units from './Units';
+import EmptyFoodNameError from './errors/EmptyFoodNameError';
+import InvalidFoodAmountError from './errors/InvalidFoodAmountError';
+export { Food, Nutritions, Units, EmptyFoodNameError, InvalidFoodAmountError };

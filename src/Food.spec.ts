@@ -95,21 +95,44 @@ describe('Food', () => {
         expect(food.getCurrentValues().protein).toEqual(57);
     });
 
-    test('create food, change calories and calculate current values', () => {
-        const baseValues = {
-            amount: 100,
-            fat: 4,
-            carbohydrate: 450,
-            protein: 1,
-            calories: 130
-        };
-        const food = new Food('rice', Units.GRAM, baseValues);
-        food.changeCalories(211);
+    describe('create food and change values', () => {
+        let food: Food;
 
-        expect(food.getCurrentValues().calories).toEqual(211);
-        expect(food.getCurrentValues().amount).toEqual(163);
-        expect(food.getCurrentValues().fat).toEqual(7);
-        expect(food.getCurrentValues().carbohydrate).toEqual(734);
-        expect(food.getCurrentValues().protein).toEqual(2);
+        beforeEach(() => {
+            const baseValues = {
+                amount: 100,
+                fat: 4,
+                carbohydrate: 450,
+                protein: 1,
+                calories: 130
+            };
+            food = new Food('rice', Units.GRAM, baseValues);
+        });
+
+        test('change calories and calculate current values', () => {
+            food.changeCalories(211);
+
+            const { calories, amount, fat, carbohydrate, protein }
+                = food.getCurrentValues();
+
+            expect(calories).toEqual(211);
+            expect(amount).toEqual(163);
+            expect(fat).toEqual(7);
+            expect(carbohydrate).toEqual(734);
+            expect(protein).toEqual(2);
+        });
+
+        test('change fat and calculate current values', () => {
+            food.changeFat(20);
+
+            const { calories, amount, fat, carbohydrate, protein }
+                = food.getCurrentValues();
+
+            expect(fat).toEqual(20);
+            expect(amount).toEqual(500);
+            expect(calories).toEqual(650);
+            expect(carbohydrate).toEqual(2250);
+            expect(protein).toEqual(5);
+        });
     });
 });

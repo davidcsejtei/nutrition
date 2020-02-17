@@ -1,7 +1,7 @@
 {
   "name": "@csejtei/nutrition",
-  "version": "1.0.3",
-  "description": "Food nutrition calculator",
+  "version": "1.0.0",
+  "description": "",
   "main": "dist/index",
   "scripts": {
     "build": "tsc",

@@ -1,4 +1,4 @@
-# Nutrition calculator
+# Nutrition calculator - Udemy course
 
 Create Foods with base nutrition values, change one of the base values and recalculate other values automatically.
 
